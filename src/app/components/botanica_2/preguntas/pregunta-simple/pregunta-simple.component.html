@@ -1,0 +1,47 @@
+
+<mat-card class="pregunta_simple_card">
+	<mat-card-header>
+		<mat-card-subtitle>
+			Pregunta Simple: Usando {{VE}} Especies
+			<br>
+			<mat-radio-group>
+				<mat-radio-button value="1" (click)="Seleccion_Config(1)">Todos</mat-radio-button>
+				<!--
+				<mat-radio-button value="2" (click)="Seleccion_Config(2)">1° Parcial</mat-radio-button>
+				-->
+				<mat-radio-button value="3" (click)="Seleccion_Config(3)">2° Parcial</mat-radio-button>
+				<mat-radio-button value="4" (click)="Seleccion_Config(4)">3° Parcial</mat-radio-button>
+			</mat-radio-group>
+			<br>
+			<span>Tipos:</span>
+			<br>	
+			<mat-radio-group>
+				<mat-radio-button value="1" (click)="Seleccion_Config_2(1)">Todos</mat-radio-button>
+				<mat-radio-button value="2" (click)="Seleccion_Config_2(2)">Alimenticios</mat-radio-button>
+				<!--
+				<mat-radio-button value="3">Ornamentales</mat-radio-button>
+				<mat-radio-button value="4">Silvestres</mat-radio-button>
+				-->
+			</mat-radio-group>
+		</mat-card-subtitle>
+	</mat-card-header>
+	<mat-card-title>
+		{{Pregunta_Simple_Maqueta.Pregunta}}
+	</mat-card-title>
+	<mat-card-content>
+		<mat-list>
+			<mat-list-item *ngFor="let respuesta of Pregunta_Simple_Maqueta.Respuestas">	
+				<span>{{respuesta[0]}}</span>
+				<span class="spacer">.........</span>
+				<button mat-raised-button color="primary" (click)="FPS_Verificar_Respuesta(respuesta[1])" >Verficar</button>
+			</mat-list-item>
+		</mat-list>
+	</mat-card-content>
+	<mat-card-actions>
+		<button mat-raised-button color="accent" >Revelar todos</button>
+		<button mat-raised-button color="accent" (click)="F_Generar_Pregunta_simple()" >Generar otra pregunta Simple!!</button>
+	</mat-card-actions>
+		<mat-card-footer >
+			<span style="background-color: rgb({{Pregunta_Simple_Maqueta.Respuesta_V[1]}});">Su ultima respuesta: {{Pregunta_Simple_Maqueta.Respuesta_V[0]}}</span>
+		</mat-card-footer>
+</mat-card>

@@ -1,0 +1,27 @@
+
+<mat-card class="pregunta_simple_card">
+	<mat-card-header>
+		<mat-card-subtitle>
+			Pregunta Simple: {{Base_var.descripcion}}
+		</mat-card-subtitle>
+	</mat-card-header>
+	<mat-card-title>
+		{{Pregunta_Simple_Maqueta.Pregunta}}
+	</mat-card-title>
+	<mat-card-content>
+		<mat-list>
+			<mat-list-item *ngFor="let respuesta of Pregunta_Simple_Maqueta.Respuestas">	
+				<span>{{respuesta[0]}}</span>
+				<span class="spacer">.........</span>
+				<button mat-raised-button color="primary" (click)="FPS_Verificar_Respuesta(respuesta[1])" >Verficar</button>
+			</mat-list-item>
+		</mat-list>
+	</mat-card-content>
+	<mat-card-actions>
+		<button mat-raised-button color="warn" >Revelar todos</button>
+		<button mat-raised-button color="warn" (click)="F_Generar_Pregunta_simple()" >Generar otra pregunta Simple!!</button>
+	</mat-card-actions>
+		<mat-card-footer >
+			<span style="background-color: rgb({{Pregunta_Simple_Maqueta.Respuesta_V[1]}});">Su ultima respuesta: {{Pregunta_Simple_Maqueta.Respuesta_V[0]}}</span>
+		</mat-card-footer>
+</mat-card>
